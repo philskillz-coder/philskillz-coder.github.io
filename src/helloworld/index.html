@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="de">
 <!--    BBBBBBBBBBBBBBBBB                                 PPPPPPPPPPPPPPPPP   hhhhhhh               iiii  lllllll                  kkkkkkkk             iiii  lllllll lllllll                         -->
 <!--    B::::::::::::::::B                                P::::::::::::::::P  h:::::h              i::::i l:::::l                  k::::::k            i::::i l:::::l l:::::l                         -->
 <!--    B::::::BBBBBB:::::B                               P::::::PPPPPP:::::P h:::::h               iiii  l:::::l                  k::::::k             iiii  l:::::l l:::::l                         -->
@@ -39,30 +39,40 @@
 <!--            tt:::::::::::tth:::::h     h:::::h  ee:::::::::::::e   s:::::::::::ss  k::::::k   k:::::k z:::::::::::::::z .::::.   d:::::::::ddd::::d  ee:::::::::::::e          v:::v              -->
 <!--              ttttttttttt  hhhhhhh     hhhhhhh    eeeeeeeeeeeeee    sssssssssss    kkkkkkkk    kkkkkkkzzzzzzzzzzzzzzzzz ......    ddddddddd   ddddd    eeeeeeeeeeeeee           vvv               -->
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/s/style.css">
-    <title>Redirecting...</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="description" content="Philskillz' link page">
+    <meta name="author" content="Philskillz">
+    <link rel="icon" type="image/png" href="/src/assetssets/favicon.ico">
+
+    <!-- Other meta tags -->
+    <meta property="og:title" content="TheSkz - Hello World">
+    <meta property="og:description" content="Hello World ;-)">
+    <meta property="og:url" content="https://theskz.dev/helloworld">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="TheSkz">
+    <meta property="og:locale" content="en_US">
+    <!-- Add more locales if necessary -->
+    <meta property="og:locale:alternate" content="de_DE">
+
+    <meta property="og:image" content="https://theskz.dev/assets/profile.png">
+    <meta property="og:image:width" content="463">
+    <meta property="og:image:height" content="463">
+
+    <!-- Twitter Meta tags -->
+    <meta name="twitter:image" content="https://theskz.dev/assets/profile.png">
+    <meta name="twitter:title" content="TheSkz - Hello World">
+    <meta name="twitter:description" content="Hello World ;-)">
+    <meta name="twitter:url" content="https://theskz.dev/helloworld">
+    <meta name="twitter:image:alt" content="Profile Picture">
+
+    <title>Hello World</title>
 </head>
-<body>
-    <div id="loader">
-        <h1>Just a moment...</h1>
-        <div class="slider">
-            <div class="line"></div>
-            <div class="break dot1"></div>
-            <div class="break dot2"></div>
-            <div class="break dot3"></div>
-        </div>
-        <p>We're redirecting you to our new site... Not working? <a id="redirect_link">Click here.</a></p>
-    </div>
-    <script>
-      const redirectUrl = "https://x.com/Philskillz_";
-
-      const metaTag = document.createElement('meta');
-      metaTag.setAttribute('http-equiv', 'refresh');
-      metaTag.setAttribute('content', '0; url=' + redirectUrl);
-      document.head.appendChild(metaTag);
-
-      document.getElementById('redirectLink').href = redirectUrl;
-    </script>
+<body class="bg-dark">
+<div id="root">
+    <main class="dark mainPage">
+        hello world
+    </main>
+</div>
 </body>
 </html>

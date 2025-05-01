@@ -1,0 +1,9 @@
+services:
+  homepage-theskz:
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - .:/app
+    environment:
+      - PYTHONUNBUFFERED=1
