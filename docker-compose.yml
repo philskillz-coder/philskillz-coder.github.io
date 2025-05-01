@@ -1,9 +1,9 @@
 services:
-  homepage-theskz:
-    build: .
+  website:
+    restart: unless-stopped
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: homepage-theskz
     ports:
       - "5000:5000"
-    volumes:
-      - .:/app
-    environment:
-      - PYTHONUNBUFFERED=1
