@@ -1,5 +1,5 @@
 services:
-  quart-app:
+  homepage-theskz:
     build: .
     ports:
       - "5000:5000"
