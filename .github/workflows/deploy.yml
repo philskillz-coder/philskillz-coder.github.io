@@ -1,0 +1,36 @@
+name: Website Deploy
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+jobs:
+  deploy-website:
+    runs-on: self-hosted
+
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+        
+      - name: Print Working Directory
+        run: pwd
+
+      - name: Stop and Remove Existing Container (if running)
+        run: |
+          docker ps -q --filter "name=homepage-theskz" | grep -q . && docker stop homepage-theskz || true
+          docker ps -a -q --filter "name=homepage-theskz" | grep -q . && docker rm homepage-theskz || true
+        
+      - name: Build Docker Image
+        run: docker compose build
+        
+      - name: Start Docker Container
+        run: docker compose up -d
+        
+      - name: Remove Dangling Images
+        run: docker rmi $(docker images -f "dangling=true" -q) || true
+        
+      - name: Show Docker Disk Usage
+        run: docker system df
+        
