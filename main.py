@@ -1,18 +1,31 @@
-from quart import Quart, send_from_directory
+from quart import Quart, send_from_directory, render_template
 
 app = Quart(__name__)
 
 @app.route('/')
-@app.route('/<path:path>')
-async def serve_static(path='index.html'):
-    if not path.endswith('.html'):
-        path += '.html'
-    return await send_from_directory('src', path)
+async def index():
+    return await render_template('index.html')
+
+@app.route("/helloworld")
+async def hello_world():
+    return await render_template('helloworld.html')
+
+@app.route("/rentner")
+async def rentner():
+    return await render_template('rentner.html')
+
+@app.route("/stats")
+async def stats():
+    return await render_template('stats.html')
+
+@app.route("/assets/<path:filename>")
+async def send_assets(filename):
+    return await send_from_directory('assets', filename)
 
 # 404 page
 @app.errorhandler(404)
 async def page_not_found(e):
-    return await send_from_directory('src', '404.html')
+    return await render_template('404.html')
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000, debug=True)
