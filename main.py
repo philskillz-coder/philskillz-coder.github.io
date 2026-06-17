@@ -18,9 +18,14 @@ async def rentner():
 async def stats():
     return await render_template('stats.html')
 
+@app.route("/nim")
+async def nim():
+    return await render_template("nim/index.html")
+
 @app.route("/assets/<path:filename>")
 async def send_assets(filename):
     return await send_from_directory('assets', filename)
+
 
 # 404 page
 @app.errorhandler(404)
