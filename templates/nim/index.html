@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nim Spiel</title>
+    <link rel="stylesheet" href="/assets/nim/style.css">
+</head>
+<body>
+
+    <h1>Kreise-Nim</h1>
+    
+    <div id="config-panel">
+        <h3>Spiel-Konfiguration</h3>
+        <div class="config-group">
+            <label for="vs-select">Spielmodus:</label>
+            <select id="vs-select">
+                <option value="ai">1vs KI (Gegen den Computer)</option>
+                <option value="1v1">1v1 (Zwei Spieler lokal)</option>
+            </select>
+        </div>
+        <div class="config-group">
+            <label for="order-select">Wer beginnt?</label>
+            <select id="order-select">
+                <option value="player">Ich beginne / Spieler 1</option>
+                <option value="ai">KI beginnt / Spieler 2</option>
+            </select>
+        </div>
+        <div class="config-group">
+            <label for="mode-select">Regelvariante:</label>
+            <select id="mode-select">
+                <option value="misere">Misère (Letzter Kreis verliert)</option>
+                <option value="normal">Normal (Letzter Kreis gewinnt)</option>
+            </select>
+        </div>
+        <div class="config-group">
+            <label for="rows-input">Anzahl der Zeilen (1-5):</label>
+            <input type="number" id="rows-input" value="5" min="1" max="5">
+        </div>
+        <div class="config-group">
+            <label for="pattern-select">Muster der Kreise:</label>
+            <select id="pattern-select">
+                <option value="linear" selected>Fortlaufend (1, 2, 3, ...)</option>
+                <option value="pyramid">Ungerade (1, 3, 5, ...)</option>
+            </select>
+        </div>
+        <button id="start-btn" class="btn" onclick="initGame()">Spiel starten</button>
+    </div>
+
+    <p class="rules-hint">Wähle Kreise aus einer Reihe aus (sie müssen lückenlos nebeneinander liegen).</p>
+    
+    <div id="status">Konfiguriere das Spiel und drücke Start</div>
+    <div id="game-analysis">Analyse: -</div>
+    
+    <div id="board"></div>
+    
+    <div class="controls">
+        <button id="end-turn-btn" class="btn" onclick="endTurn()" style="display:none;">Zug beenden</button>
+        <button id="hint-btn" class="btn" onclick="showBestMoveHint()" style="display:none;">Besten Zug zeigen</button>
+        <button id="undo-btn" class="btn" onclick="undoMove()" style="display:none;">Zug zurück</button>
+    </div>
+
+    <script src="/assets/nim/script.js"></script>
+</body>
+</html>

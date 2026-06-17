@@ -1,0 +1,87 @@
+body {
+    font-family: sans-serif;
+    text-align: center;
+    background: #f0f2f5;
+    color: #333;
+    margin: 0;
+    padding: 20px;
+}
+#config-panel {
+    background: white;
+    max-width: 500px;
+    margin: 0 auto 20px auto;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.config-group {
+    margin: 10px 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+select, input {
+    padding: 5px;
+    font-size: 14px;
+}
+.row {
+    display: flex;
+    justify-content: center;
+    margin: 12px 0;
+}
+.circle {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 3px solid #3498db;
+    margin: 0 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+    position: relative;
+}
+.circle.selected {
+    background-color: #f1c40f;
+    border-color: #f1c40f;
+}
+.circle.hint {
+    background-color: #2ecc71 !important;
+    border-color: #2ecc71 !important;
+    box-shadow: 0 0 10px #2ecc71;
+}
+.circle.crossed {
+    border-color: #bdc3c7;
+    background: #ecf0f1;
+    cursor: not-allowed;
+    box-shadow: none !important;
+}
+.circle.crossed::after {
+    content: '';
+    position: absolute;
+    top: 50%; left: -4px; right: -4px;
+    height: 4px;
+    background: #e74c3c;
+    transform: rotate(-15deg);
+}
+.controls {
+    margin-top: 20px;
+}
+.btn {
+    padding: 10px 20px;
+    font-size: 16px;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 5px;
+}
+#start-btn { background: #34495e; }
+#end-turn-btn { background: #2ecc71; }
+#end-turn-btn:hover { background: #27ae60; }
+#hint-btn { background: #9b59b6; }
+#hint-btn:hover { background: #8e44ad; }
+#undo-btn { background: #e67e22; }
+#undo-btn:hover { background: #d35400; }
+
+#status { font-size: 18px; font-weight: bold; margin: 15px 0 5px 0; min-height: 27px; }
+#game-analysis { font-size: 14px; font-style: italic; color: #7f8c8d; margin-bottom: 15px; }
+.rules-hint { font-size: 14px; color: #666; margin-bottom: 20px; }
