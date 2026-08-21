@@ -14,7 +14,16 @@ function initGame() {
     const pattern = document.getElementById('pattern-select').value;
     gameMode = document.getElementById('mode-select').value;
     vsMode = document.getElementById('vs-select').value;
-    const startingOrder = document.getElementById('order-select').value;
+    let startingOrder = document.getElementById('order-select').value;
+
+    // Zufällige Startreihenfolge auflösen
+    if (startingOrder === 'rand') {
+        if (vsMode === 'ai') {
+            startingOrder = Math.random() < 0.5 ? '1' : 'ai';
+        } else {
+            startingOrder = Math.random() < 0.5 ? '1' : '2';
+        }
+    }
 
     board.innerHTML = '';
     boardState = [];
@@ -51,11 +60,12 @@ function initGame() {
         isBotThinking = true;
         setTimeout(makeAIMove, 600);
     } else {
-        currentPlayer = 1;
-        document.getElementById('status').innerText = "Spieler 1 ist dran";
+        currentPlayer = parseInt(startingOrder) || 1;
+        document.getElementById('status').innerText = vsMode === 'ai' ? "Du bist dran" : `Spieler ${currentPlayer} ist dran`;
         updateLiveAnalysis();
     }
 }
+
 
 function selectCircle(rowIndex, index, element) {
     if (boardState[rowIndex][index]) return;
